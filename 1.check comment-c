@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char input[100];
+    printf("Enter a line of text: ");
+    scanf("%99[^\n]", input);
+    if (strncmp(input, "//", 2) == 0) {
+        printf("The input is a single-line comment.\n");
+    } else if (strstr(input, "/*") != NULL && strstr(input, "*/") != NULL) {
+        printf("The input contains a multi-line comment.\n");
+    } else {
+        printf("The input is not a comment.\n");
+    }
+    return 0;
+}
+
+OUTPUT:
+Enter a line of text: /*gfdsdfg*/
+The input contains a multi-line comment.
+
+--------------------------------
+Process exited after 23.51 seconds with return value 0
+Press any key to continue . . .
