@@ -1,0 +1,20 @@
+%{
+%}
+%%
+"https://"[a-z A-Z 0-9]+(.com|.in) {printf("\nURL validate\n");}
+.+ {printf("\nURL not validate\n");}
+%%
+int yywrap(void){}
+int main()
+{
+printf("\n enter the URL\n");
+yylex();
+printf("\n");
+return 0;
+}
+
+Output:
+ enter the URL
+https://github.com
+
+URL validate
