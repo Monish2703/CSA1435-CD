@@ -45,3 +45,30 @@ void check(){
            stk[z+1]='\0';
            printf("\n$%s\t%s$\t%s",stk,a,ac);
            i=i-2;}}
+
+OUTPUT:
+GRAMMAR is E->E+E
+ E->E*E
+ E->(E)
+ E->id
+ enter input string :
+E+(E*E)+id
+stack    input   action
+
+$E       +(E*E)+id$     SHIFT
+$E+       (E*E)+id$     SHIFT
+$E+(       E*E)+id$     SHIFT
+$E+(E       *E)+id$     SHIFT
+$E+(E*       E)+id$     SHIFT
+$E+(E*E       )+id$     SHIFT
+$E+(E         )+id$     REDUCE TO E
+$E+(E)         +id$     SHIFT
+$E+E           +id$     REDUCE TO E
+$E+E+           id$     SHIFT
+$E              id$     REDUCE TO E
+$E                $     SHIFTid
+$E                $     REDUCE TO E
+$E                $     REDUCE TO E
+--------------------------------
+Process exited after 17.66 seconds with return value 0
+Press any key to continue . . .
